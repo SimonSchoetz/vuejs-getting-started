@@ -16,17 +16,22 @@
             <h1>Busted Fingerz Discography</h1>
 
         <div id="app">
-            <div class="product">   
-                <div class="product-info">
-                    <h2>{{product}}</h2>
-                </div>
+            <div class="release-container" v-for="release in discography" :key="release.id">   
+                
                 <div class="cover-art-container">
-                    <img :src="coverArt" :alt="coverArtAlt" width="250" height="250">
+                    <img v-if="release.artwork.length !== 0 " :src="release.artwork" :alt="release.name" width="250" height="250">
+                    <img v-else src="https://i1.sndcdn.com/avatars-000456674544-werm3v-t500x500.jpg" :alt="release.name" width="250" height="250">
                 </div>
-                <a :href="buyLink" target="_blank" rel="noopener noreferrer">
-                    <p v-show="free">Free DL</p>
-                    <p v-show="!free">Support</p>
-                </a>
+                <div class="description-container">
+                    <h2>{{release.name}}</h2>
+                    <p>{{release.date}}</p>
+                    <p>{{release.release}}</p>
+                    <p>{{release.label}}</p>
+                    <a :href="release.link" target="_blank" rel="noopener noreferrer">
+                        <p v-show="release.free">Free DL</p>
+                        <p v-show="!release.free">Support</p>
+                    </a>
+                </div>
             </div>
         </div>
         <script src="./node_modules/vue/dist/vue.js" ></script>
