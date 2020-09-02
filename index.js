@@ -43,6 +43,8 @@ const app = new Vue ({
     data: {
         product: discography[0].name,
         coverArt:  discography[0].artwork,
-        coverArtAlt: `Cover artwork of ${discography[0].name}`
+        coverArtAlt: `Cover artwork of ${discography[0].name}`,
+        free: discography[0].free,
+        buyLink: discography[0].link
     }
 })

@@ -12,20 +12,25 @@
     <body>
         <noscript>Please enable JavaScript to run this app.</noscript>
 
-            <div class="nav-bar"></div>
+        <div class="nav-bar"></div>
+            <h1>Busted Fingerz Discography</h1>
 
-            <div id="app">
-                <div class="product">
-                    <div class="product-info">
-                        <h1>{{product}}</h1>
-                    </div>
-                    <div class="cover-art-container">
-                        <img v-bind:src="coverArt" v-bind:alt="coverArtAlt" width="250" height="250">
-                    </div>
+        <div id="app">
+            <div class="product">   
+                <div class="product-info">
+                    <h2>{{product}}</h2>
                 </div>
+                <div class="cover-art-container">
+                    <img :src="coverArt" :alt="coverArtAlt" width="250" height="250">
+                </div>
+                <a :href="buyLink" target="_blank" rel="noopener noreferrer">
+                    <p v-show="free">Free DL</p>
+                    <p v-show="!free">Support</p>
+                </a>
             </div>
-            <script src="./node_modules/vue/dist/vue.js" ></script>
-            <script src="./index.js"></script>
+        </div>
+        <script src="./node_modules/vue/dist/vue.js" ></script>
+        <script src="./index.js"></script>
 
 
     </body>
