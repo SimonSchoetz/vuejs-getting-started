@@ -8,16 +8,26 @@
         <title>My First Vue.js project</title>
         <link rel="stylesheet" href="./normalize.css">
         <link rel="stylesheet" href="./index.css">
+        <script src="https://kit.fontawesome.com/d59f55dd40.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <noscript>Please enable JavaScript to run this app.</noscript>
 
         <div class="nav-bar"></div>
-            <h1>Busted Fingerz Discography</h1>
-
         <div id="app">
-            <div class="release-container" v-for="release in discography" :key="release.id">   
-                
+            <h1>Busted Fingerz Discography</h1>
+            <div @mouseover="hoverLike = true" @mouseleave="hoverLike = false">
+                <p>Show some love and leave one or more likes</p>
+                <button class="like-btn"  v-on:click="incrLikes">
+                    <i v-show="!hoverLike" class="far fa-thumbs-up"></i>
+                    <i v-show="hoverLike" class="fas fa-thumbs-up"></i>
+                </button>
+                <div>
+                    <p>Total likes: {{likes}}</p>
+                </div>
+            </div>
+
+            <div class="release-container" v-for="release in discography" :key="release.id">    
                 <div class="cover-art-container">
                     <img v-if="release.artwork.length !== 0 " :src="release.artwork" :alt="release.name" width="250" height="250">
                     <img v-else src="https://i1.sndcdn.com/avatars-000456674544-werm3v-t500x500.jpg" :alt="release.name" width="250" height="250">

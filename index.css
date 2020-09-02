@@ -5,11 +5,23 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+}
 
 #app {
-    max-width: 1000px;
+    max-width: 1400px;
+    
 
 }
+
+.like-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+
 .release-container {
     display: flex;
     margin: 1rem 0;

@@ -42,10 +42,13 @@ const app = new Vue ({
     el: "#app", 
     data: {
         discography: discography,
-        product: discography[0].name,
-        coverArt:  discography[0].artwork,
-        coverArtAlt: `Cover artwork of ${discography[0].name}`,
-        free: discography[0].free,
-        buyLink: discography[0].link,
+        likes: 0,
+        hoverLike: false,
     },
+    methods: {
+        incrLikes() {
+            this.likes ++
+        },
+    }
 })
+console.log(app.$root.hoverLike)
